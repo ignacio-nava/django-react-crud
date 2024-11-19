@@ -1,0 +1,59 @@
+# General
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+*.env
+.DS_Store
+Thumbs.db
+__pycache__/
+*.swp
+
+# Virtual Environment
+venv/
+env/
+.virtualenv/
+
+# Django specific
+db.sqlite3
+media/
+staticfiles/
+static/
+node_modules/
+
+# Django migrations
+*/migrations/
+*.pyc
+*.pyo
+server/*/migrations/00*.py
+
+# React specific
+# Ignore dependencies folder
+Frontend/projecto_react/node_modules/
+
+# Ignore build folder
+Frontend/projecto_react/build/
+
+# Temporary files and build artifacts
+Frontend/projecto_react/dist/
+Frontend/projecto_react/.parcel-cache/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Yarn/PNPM
+.yarn/
+.pnp.*
+.pnpm-debug.log
+
+# Test coverage files
+coverage/
+.nyc_output/
