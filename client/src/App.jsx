@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     async function loadUser() {
       try {
-        const res = await getUser()      
+        const res = await getUser() 
         setCurrentUser(res.data.user)
       } catch(e) {
         setCurrentUser(false)
