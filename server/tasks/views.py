@@ -24,7 +24,7 @@ class TaskView(viewsets.ModelViewSet):
 
     @swagger_auto_schema(operation_summary="Creación de tarea", operation_description="Crea una tarea asignada al usuario autenticado.")
     def create(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
+        return super().create(request, *args, **kwargs)
 
     @swagger_auto_schema(operation_summary="No soportado", operation_description="No soportado", responses={405: "Method Not Allowed"})
     def partial_update(self, request, *args, **kwargs):

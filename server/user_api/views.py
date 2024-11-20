@@ -2,11 +2,14 @@ from django.contrib.auth import get_user_model, login, logout
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import permissions, status
+
 from .serializers import (
     UserLoginSerializer,
-    UserSerializer
+    UserSerializer,
+    PerfilSerializer
 )
-from rest_framework import permissions, status
+from django.contrib.auth.models import User
 
 
 class UserLogin(APIView):
@@ -35,5 +38,11 @@ class UserView(APIView):
     authentication_classes = (SessionAuthentication,)
 
     def get(self, request):
-        serializer = UserSerializer(request.user)
-        return Response({'user': serializer.data}, status=status.HTTP_200_OK)
+        serializer_user = UserSerializer(request.user)
+        perfil = request.user.perfil  # Relación OneToOne
+        serializer_perfil = PerfilSerializer(perfil)
+
+        data = {
+            'user': {**serializer_user.data, **serializer_perfil.data}
+        }
+        return Response(data, status=status.HTTP_200_OK)
